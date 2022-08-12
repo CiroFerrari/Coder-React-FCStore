@@ -1,3 +1,7 @@
+# Author: Franco Ciro Ferrari
+
+This project is for the React.js course dictated by CoderHouse in LATAM.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
