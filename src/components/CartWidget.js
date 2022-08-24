@@ -1,4 +1,5 @@
 export default function CartWidget() {
+  let cantidad = 5;
   return (
     <div
       className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -13,6 +14,7 @@ export default function CartWidget() {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
         </svg>
       </button>
+      <span className="text-gray-400 text-xs mb-4 ml-[-4px]">{cantidad}</span>
     </div>
   );
 }
