@@ -1,0 +1,148 @@
+export const productsData = [
+  {
+    id: 1,
+    name: 'Crema antiage',
+    href: '#',
+    imageSrc: 'https://images.hola.com/imagenes/belleza/actualidad/2016020383507/productos-beauty-mas-vendidos/0-350-193/lierac--a.jpg',
+    imageAlt: "Crema anti edad Lierac.",
+    price: '$7200',
+    brand: 'Lierac',
+    min: 1,
+    stock: 5,
+    category: "creams"
+  },
+  {
+    id: 2,
+    name: 'Corrector de líneas',
+    href: '#',
+    imageSrc: 'https://images.hola.com/imagenes/belleza/actualidad/2016020383507/productos-beauty-mas-vendidos/0-350-150/germaine--a.jpg',
+    imageAlt: "Corrector de líneas Germaine de Capuccini.",
+    price: '$4900',
+    brand: 'Germaine de Capuccini',
+    min: 1,
+    stock: 3,
+    category: "creams"
+  },
+  {
+    id: 3,
+    name: 'Crema anti-edad',
+    href: '#',
+    imageSrc: 'https://images.hola.com/imagenes/belleza/actualidad/2016020383507/productos-beauty-mas-vendidos/0-350-222/olay--a.jpg',
+    imageAlt: "Crema anti edad Olay.",
+    price: '$3500',
+    brand: 'Olay',
+    min: 1,
+    stock: 7,
+    category: "creams"
+  },
+  {
+    id: 4,
+    name: 'Crema Facial',
+    href: '#',
+    imageSrc: 'https://m.media-amazon.com/images/I/51mrt7ZBWbL._SY355_.jpg',
+    imageAlt: "Crema facial Chronos.",
+    price: '$5200',
+    brand: 'Chronos',
+    min: 1,
+    stock: 9,
+    category: "creams"
+  },
+  {
+    id: 5,
+    name: 'Miss Dior Eau de Parfum',
+    href: '#',
+    imageSrc: 'https://media.allure.com/photos/6155c25fab812b172956dc9f/1:1/w_2580%2Cc_limit/dior.jpg',
+    imageAlt: "Perfume Miss Dior Eau de Parfum.",
+    price: '$8200',
+    brand: 'Dior',
+    min: 1,
+    stock: 3,
+    category: "perfumes"
+  },
+  {
+    id: 6,
+    name: 'Chloé Eau de Parfum',
+    href: '#',
+    imageSrc: 'https://media.allure.com/photos/6155c6eaffeece50a5a7fe97/1:1/w_2580%2Cc_limit/chloe.jpg',
+    imageAlt: "Perfume Chloé Eau de Parfum.",
+    price: '$7700',
+    brand: 'Chloé',
+    min: 1,
+    stock: 9,
+    category: "perfumes"
+  },
+  {
+    id: 7,
+    name: 'Good Girl Gone Bad Eau de Parfum',
+    href: '#',
+    imageSrc: 'https://media.allure.com/photos/615f69a8c9c39f4d4714e93e/1:1/w_2580%2Cc_limit/kilian%2520copy.jpg',
+    imageAlt: "Perfume Kilian Good Girl Gone Bad Eau de Parfum.",
+    price: '$8700',
+    brand: 'Kilian',
+    min: 1,
+    stock: 7,
+    category: "perfumes"
+  },
+  {
+    id: 8,
+    name: 'Sí',
+    href: '#',
+    imageSrc: 'https://media.allure.com/photos/615e089c04eb7cf3e25f5c93/1:1/w_2580%2Cc_limit/giorgio%2520armani.jpg',
+    imageAlt: "Perfume Giorgio Armani Sí.",
+    price: '$9200',
+    brand: 'Giorgio Armani',
+    min: 1,
+    stock: 5,
+    category: "perfumes"
+  },
+  {
+    id: 9,
+    name: 'Lip Color Satin Matte',
+    href: '#',
+    imageSrc: 'https://rougeb2car.vtexassets.com/arquivos/ids/183362-1200-auto?v=637824373671600000&width=1200&height=auto&aspect=true',
+    imageAlt: "Labial Tom Ford Lip Color Satin Matte.",
+    price: '$8200',
+    brand: 'Tom Ford',
+    min: 1,
+    stock: 5,
+    category: "accesories"
+  },
+  {
+    id: 10,
+    name: 'Le Phyto Rouge Beige Jaipur',
+    href: '#',
+    imageSrc: 'https://rougeb2car.vtexassets.com/arquivos/ids/183405-1200-auto?v=637824373857500000&width=1200&height=auto&aspect=true',
+    imageAlt: "Labial Sisley Le Phyto Rouge Beige Jaipur.",
+    price: '$9700',
+    brand: 'Sisley',
+    min: 1,
+    stock: 3,
+    category: "accesories"
+  },
+  {
+    id: 11,
+    name: 'Rouge Dior',
+    href: '#',
+    imageSrc: 'https://rougeb2car.vtexassets.com/arquivos/ids/175725-1200-auto?v=637789046425770000&width=1200&height=auto&aspect=true',
+    imageAlt: "Labial Dior Rouge Dior.",
+    price: '$7700',
+    brand: 'Dior',
+    min: 1,
+    stock: 9,
+    category: "accesories"
+  },
+  {
+    id: 12,
+    name: 'Pure Color Envy Lustre',
+    href: '#',
+    imageSrc: 'https://rougeb2car.vtexassets.com/arquivos/ids/176898-1200-auto?v=637789111299300000&width=1200&height=auto&aspect=true',
+    imageAlt: "Labial Estée Lauder Pure Color Envy Lustre.",
+    price: '$8700',
+    brand: 'Estée Lauder',
+    min: 1,
+    stock: 7,
+    category: "accesories"
+  },
+
+  // More products...
+]
