@@ -9,7 +9,8 @@ export const productsData = [
     brand: 'Lierac',
     min: 1,
     stock: 5,
-    category: "creams"
+    category: "creams",
+    description: "Esta crema antiedad de Lierac combate los signos del envejecimiento y la pérdida de firmeza. Además, despigmenta las manchas y afina los poros. Es un tratamiento global que actúa sobre todos los signos de la edad. Está indicada especialmente para pieles maduras."
   },
   {
     id: 2,

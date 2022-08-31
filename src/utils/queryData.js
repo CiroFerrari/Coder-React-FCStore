@@ -1,6 +1,6 @@
 let is_ok = true;
 
-let queryProducts = (task) => {
+let queryData = (task) => {
   return new Promise((resolve, reject) => {
     if(is_ok) {
       setTimeout(() => {
@@ -12,4 +12,4 @@ let queryProducts = (task) => {
   })
 }
 
-export default queryProducts;
+export default queryData;

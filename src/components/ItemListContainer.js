@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import queryProducts from "../utils/queryProducts";
+import queryData from "../utils/queryData";
 import {productsData} from "../utils/productsData";
 import ItemList from "./ItemList";
 
@@ -8,7 +8,7 @@ export default function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    queryProducts(productsData)
+    queryData(productsData)
       .then(result => setProducts(result))
       .catch(err => console.log(err))
   })
