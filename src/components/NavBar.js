@@ -4,12 +4,13 @@ import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {BellIcon, MenuIcon, XIcon} from '@heroicons/react/outline'
 import Logo from '../assets/LogoFCStore.png'
 import CartWidget from "./CartWidget";
+import {Link} from "react-router-dom";
 
 const navigation = [
-  {name: 'Inicio', href: '#inicio', current: false},
-  {name: 'Cremas', href: '#cremas', current: false},
-  {name: 'Perfumes', href: '#perfumes', current: false},
-  {name: 'Accesorios', href: '#accesorios', current: false},
+  {name: 'Inicio', to: '/', current: false},
+  {name: 'Cremas', to: '/category/cremas', current: false},
+  {name: 'Perfumes', to: '/category/perfumes', current: false},
+  {name: 'Accesorios', to: '/category/accesorios', current: false},
 ]
 
 function classNames(...classes) {
@@ -36,24 +37,26 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src={Logo}
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src={Logo}
-                    alt="Workflow"
-                  />
-                </div>
+                <Link to="/">
+                  <div className="flex-shrink-0 flex items-center">
+                    <img
+                      className="block lg:hidden h-8 w-auto"
+                      src={Logo}
+                      alt="Workflow"
+                    />
+                    <img
+                      className="hidden lg:block h-8 w-auto"
+                      src={Logo}
+                      alt="Workflow"
+                    />
+                  </div>
+                </Link>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
+                        to={item.to}
                         key={item.name}
-                        href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -61,12 +64,12 @@ export default function NavBar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              <CartWidget />
+              <CartWidget/>
             </div>
           </div>
 

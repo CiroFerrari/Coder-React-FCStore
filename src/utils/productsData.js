@@ -9,7 +9,7 @@ export const productsData = [
     brand: 'Lierac',
     min: 1,
     stock: 5,
-    category: "creams",
+    category: "cremas",
     description: "Esta crema antiedad de Lierac combate los signos del envejecimiento y la pérdida de firmeza. Además, despigmenta las manchas y afina los poros. Es un tratamiento global que actúa sobre todos los signos de la edad. Está indicada especialmente para pieles maduras."
   },
   {
@@ -22,7 +22,8 @@ export const productsData = [
     brand: 'Germaine de Capuccini',
     min: 1,
     stock: 3,
-    category: "creams"
+    category: "cremas",
+    description: "Sérum Record Corrección Líneas Arrugas Germaine de Capuccinies un serum muy ligero con efecto lifting que previene y trata las primeras arrugas y líneas de expresión. Sérum record Corrección líneas arrugas Germaine de capuccini está indicada para: - Pieles que presenten primeras arrugas."
   },
   {
     id: 3,
@@ -34,7 +35,8 @@ export const productsData = [
     brand: 'Olay',
     min: 1,
     stock: 7,
-    category: "creams"
+    category: "cremas",
+    description: "Olay Regenerist Anti-Edad Reafirmante es un poderoso tratamiento hidratante con una fórmula de lujo que rellena la piel. Contiene ingredientes avanzados antiedad como el Ácido Hialurónico y el Complejo de Aminopéptidos II, que ayudan a la piel a mantener una apariencia joven."
   },
   {
     id: 4,
@@ -46,7 +48,8 @@ export const productsData = [
     brand: 'Chronos',
     min: 1,
     stock: 9,
-    category: "creams"
+    category: "cremas",
+    description: "Su fórmula exclusiva estimula la producción de ácido hialurónico, colágeno y elastina, lo que rellena la piel del rostro y reduce las arrugas, incluso las más profundas. La piel queda revitalizada, más suave y densa. Dermatológicamente probado."
   },
   {
     id: 5,
@@ -58,7 +61,10 @@ export const productsData = [
     brand: 'Dior',
     min: 1,
     stock: 3,
-    category: "perfumes"
+    category: "perfumes",
+    description: "El aroma del amor\n" +
+      "\n" +
+      "Las notas de salida: la mandarina de Sicilia se asocia a la dulzura de la naranja sanguina y de la bergamota. Las notas de corazón son muy femeninas y palpitan con elegancia gracias a un absoluto de jazmín que combina flores de origen indio y egipcio."
   },
   {
     id: 6,
@@ -70,7 +76,8 @@ export const productsData = [
     brand: 'Chloé',
     min: 1,
     stock: 9,
-    category: "perfumes"
+    category: "perfumes",
+    description: "Como notas de salida, peonía, lichi y fresia. En el corazón, una intensa rosa acompañada del lirio de los valles y magnolia. Y en el fondo, notas de cedro de Virginia y ámbar. Todo confluyen en una extravagante mezcla que, sin embargo, deja una estela fresca, femenina y delicada."
   },
   {
     id: 7,
@@ -82,7 +89,8 @@ export const productsData = [
     brand: 'Kilian',
     min: 1,
     stock: 7,
-    category: "perfumes"
+    category: "perfumes",
+    description: "Eau de Parfum (floral, afrutado). Una personificación de la mujer de hoy en día. Un perfume mensajero de la mujer tal como le gustan a Kilian: sensual y repleta de prohibiciones. Una mujer preparada para todo por amor, por ganas, por malicia."
   },
   {
     id: 8,
@@ -94,7 +102,18 @@ export const productsData = [
     brand: 'Giorgio Armani',
     min: 1,
     stock: 5,
-    category: "perfumes"
+    category: "perfumes",
+    description: "Si Eau de Parfum, es la fragancia de la feminidad y la actitud.\n" +
+      "\n" +
+      "El valor de decir Sí, Sí a la vida.\n" +
+      "\n" +
+      "Sí es un chipre reinventado que se detiene sobre la piel cautivando los sentidos.\n" +
+      "\n" +
+      "La escritura olfativa simboliza la fuerza, la elegancia y la actitud de la mujer.\n" +
+      "\n" +
+      "Ella es la autora de su propia vida.\n" +
+      "\n" +
+      "El secreto de su poder es su audacia y valor para decir \"sí\"."
   },
   {
     id: 9,
@@ -106,7 +125,9 @@ export const productsData = [
     brand: 'Tom Ford',
     min: 1,
     stock: 5,
-    category: "accesories"
+    category: "accesorios",
+    description: "Un golpe visiblemente aterciopelado.\n" +
+      "Vibrante, terciopelo y saturado con un impactante color de alto pigmento. La fórmula ligera, de cobertura completa y de larga duración incluye los ingredientes nutritivos exóticos y exóticos del icónico color de Tom Ford Lips, incluyendo el extracto de semilla de soja, la manteca de murmuru brasileña y el aceite de semilla de rosa mosqueta, y ayuda a la hidratación del labio."
   },
   {
     id: 10,
@@ -118,7 +139,8 @@ export const productsData = [
     brand: 'Sisley',
     min: 1,
     stock: 3,
-    category: "accesories"
+    category: "accesorios",
+    description: "La intensidad de una barra de labios combinada con la sensación de un bálsamo en una excepcional fórmula de tratamiento."
   },
   {
     id: 11,
@@ -130,7 +152,8 @@ export const productsData = [
     brand: 'Dior',
     min: 1,
     stock: 9,
-    category: "accesories"
+    category: "accesorios",
+    description: "Barra de labios recargable con 4 acabados couture: satinado, mate, metalizado y nuevo aterciopelado."
   },
   {
     id: 12,
@@ -142,7 +165,20 @@ export const productsData = [
     brand: 'Estée Lauder',
     min: 1,
     stock: 7,
-    category: "accesories"
+    category: "accesorios",
+    description: "Color con el poder de transformar tus labios, tu mirada, tu actitud.\n" +
+      "\n" +
+      "Esculpe: los pigmentos multifacéticos envuelven los labios con un impacto de color dimensional y una definición esculpida\n" +
+      "\n" +
+      "Hidrata: nuestro complejo de hidratación revitalizante ayuda a suavizar, alisar y rellenar instantáneamente la superficie de los labios con humedad. Esta fórmula también mejora la barrera de humedad de los labios para ayudar a mantener la hidratación y acondicionar los labios con el tiempo.\n" +
+      "\n" +
+      "Halagadores: satura los labios con un llamativo color portátil diseñado para halagar todos los tonos de piel y matices\n" +
+      "\n" +
+      "Acabado radiante y de alto brillo:El acabado lujoso y radiante contiene perlas multidimensionales que mejoran y esculpen el aspecto de los labios. Se desliza sin esfuerzo con una textura cremosa innegablemente cómoda. 8 horas de uso. La bala diseñada por expertos tiene forma para ayudar a esculpir las curvas de tus labios con precisión sin esfuerzo.\n" +
+      "\n" +
+      "El estuche se siente como un lujo en tus manos. Y con un clic, caso cerrado.\n" +
+      "\n" +
+      "Libre de parabenos, ftalatos y aceite mineral."
   },
 
   // More products...

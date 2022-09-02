@@ -20,6 +20,7 @@ export default function ItemList(props) {
               price={item.price}
               min={item.min}
               stock={item.stock}
+              id={item.id}
             />
           ))}
         </div>

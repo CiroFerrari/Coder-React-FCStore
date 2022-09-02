@@ -2,14 +2,16 @@ import {useEffect, useState} from "react";
 import queryData from "../utils/queryData";
 import ItemDetail from "./ItemDetail";
 import {productsData} from "../utils/productsData";
+import {useParams} from "react-router-dom";
 
 export default function ItemDetailContainer() {
 
   const [oneProduct, setOneProduct] = useState();
+  const { id } = useParams();
 
   useEffect(() => {
-    queryData(productsData[0])
-      .then(result => setOneProduct(result))
+    queryData(productsData.filter(item => item.id == id))
+      .then(result => setOneProduct(result[0]))
       .catch(err => console.log(err))
   }, [])
 
