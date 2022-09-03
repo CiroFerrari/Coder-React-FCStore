@@ -27,6 +27,6 @@ npm start
 - Ferrari, Franco Ciro
 
 Se agradece a FCstore por la confianza y motivación. <br/>
-También a CoderHouse por la oportunidad de crecer como developers.
+También a CoderHouse por la oportunidad de crecer como developer.
 
 
