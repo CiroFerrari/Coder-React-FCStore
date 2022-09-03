@@ -30,9 +30,9 @@ export default function ItemCountDetail(props) {
   }
 
   return (
-    <div className="flex items-center gap-8 w-full">
+    <div className="flex  flex-col sm:flex-row items-center gap-8 w-full">
       <div
-        className="flex justify-between items-center px-4 py-1 border-indigo-600 border-2 rounded-md w-1/3 hover:bg-gray-50">
+        className="flex justify-between items-center px-4 py-1 border-indigo-600 border-2 rounded-md w-full sm:w-1/3 hover:bg-gray-50">
         <button className="mr-5 px-4 py-1.5 hover:bg-indigo-100" onClick={decrement}>-</button>
         {countDetail}
         <button className="ml-5 px-4 py-1.5 hover:bg-indigo-100" onClick={increment}>+</button>
