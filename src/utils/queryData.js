@@ -5,7 +5,7 @@ let queryData = (task) => {
     if(is_ok) {
       setTimeout(() => {
         resolve(task);
-      }, 500);
+      }, 2000);
     } else {
       reject("Error")
     }
