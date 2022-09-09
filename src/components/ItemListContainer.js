@@ -8,7 +8,6 @@ export default function ItemListContainer(props) {
 
   const [products, setProducts] = useState([]);
   const {id} = useParams();
-  console.log(id)
 
   useEffect(() => {
     if (id) {
