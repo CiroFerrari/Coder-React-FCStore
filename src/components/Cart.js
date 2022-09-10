@@ -1,11 +1,14 @@
-import {Fragment, useState} from 'react'
+import {Fragment, useContext, useEffect, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {Link} from "react-router-dom";
-
-const products = [];
+import {CartContext} from "./CartContext";
+import ItemCountCart from "./itemCountCart";
 
 export default function Cart() {
-  const [open, setOpen] = useState(true)
+
+  const cartContext = useContext(CartContext);
+  const [open, setOpen] = useState(true);
+  let subtotal = cartContext.subtotal;
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -24,7 +27,7 @@ export default function Cart() {
 
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10">
               <Transition.Child
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -58,8 +61,8 @@ export default function Cart() {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                          <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
+                          <ul className="-my-6 divide-y divide-gray-200">
+                            {cartContext.cartList.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div
                                   className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -76,17 +79,20 @@ export default function Cart() {
                                       <h3>
                                         <a href={product.href}>{product.name}</a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">${product.price}</p>
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Cantidad {product.quantity}</p>
-
+                                    <p className="text-gray-500 text-center">Cantidad {product.quantity}</p>
+                                    <ItemCountCart item={product}></ItemCountCart>
                                     <div className="flex">
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        onClick={() => {
+                                          cartContext.removeItem(product.id)
+                                        }}
                                       >
                                         Quitar
                                       </button>
@@ -103,7 +109,7 @@ export default function Cart() {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$0</p>
+                        <p>${subtotal}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">No incluye costos de envío.</p>
                       <div className="mt-6">
@@ -116,6 +122,13 @@ export default function Cart() {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
+                          <button
+                            type="button"
+                            className="font-medium text-indigo-600 hover:text-indigo-500 mr-1"
+                            onClick={() => cartContext.clearCart()}
+                          >
+                            Limpiar carrito
+                          </button>
                           o
                           <Link to='/'>
                             <button

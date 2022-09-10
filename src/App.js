@@ -7,15 +7,15 @@ import {Route, Routes} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer greetings="¡Pronto estaremos online!" />} />
-        <Route path="/category/:id" element={<ItemListContainer greetings="¡Pronto estaremos online!" />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </div>
+      <div className="App">
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<ItemListContainer greetings="¡Pronto estaremos online!"/>}/>
+          <Route path="/category/:id" element={<ItemListContainer greetings="¡Pronto estaremos online!"/>}/>
+          <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+        </Routes>
+      </div>
   );
 }
 

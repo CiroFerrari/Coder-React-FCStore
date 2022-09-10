@@ -29,7 +29,7 @@ export default function ItemListContainer(props) {
         <ItemList items={products}/>
         :
         <div className="flex justify-center items-center min-h-[50vh] w-screen">
-          <div className="spin text-xl">Cargando</div>
+          <div className="spin text-xl"></div>
         </div>
       }
     </div>

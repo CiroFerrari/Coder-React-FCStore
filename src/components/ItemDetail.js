@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ItemCountDetail from "./ItemCountDetail";
 
 export default function ItemDetail(props) {
@@ -37,9 +37,9 @@ export default function ItemDetail(props) {
             {/* Price and Add-to-Cart Button */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">{props.item.price}</p>
+              <p className="text-3xl tracking-tight text-gray-900">${props.item.price}</p>
               <div className="flex flex-col items-center mt-6 mb-0">
-                <ItemCountDetail stock={props.item.stock} min={props.item.min}/>
+                <ItemCountDetail item={props.item}/>
               </div>
             </div>
           </div>
