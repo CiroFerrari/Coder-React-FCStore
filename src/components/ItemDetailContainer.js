@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import queryData from "../utils/queryData";
 import ItemDetail from "./ItemDetail";
 import {productsData} from "../utils/productsData";
@@ -10,16 +10,15 @@ export default function ItemDetailContainer() {
   const { id } = useParams();
 
   useEffect(() => {
-    queryData(productsData.filter(item => item.id == id))
+    queryData(productsData.filter(item => item.id === parseInt(id)))
       .then(result => setOneProduct(result[0]))
       .catch(err => console.log(err))
-  }, [])
+  })
 
   return (
     oneProduct ? <ItemDetail item={oneProduct}/> :
-      <div className="flex justify-center items-center min-h-[70vh] w-screen">
-        <div className="spin"></div>
-        <p className="mt-6 text-xl">Cargando</p>
+      <div className="flex justify-center items-center min-h-[50vh] w-screen">
+        <div className="spin text-xl">Cargando</div>
       </div>
   )
 }

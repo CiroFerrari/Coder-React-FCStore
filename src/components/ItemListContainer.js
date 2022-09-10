@@ -11,7 +11,7 @@ export default function ItemListContainer(props) {
 
   useEffect(() => {
     if (id) {
-      queryData(productsData.filter(item => item.category == id))
+      queryData(productsData.filter(item => item.category === id))
         .then(result => setProducts(result))
         .catch(err => console.log(err))
     } else {
@@ -29,8 +29,7 @@ export default function ItemListContainer(props) {
         <ItemList items={products}/>
         :
         <div className="flex justify-center items-center min-h-[50vh] w-screen">
-          <div className="spin"></div>
-          <p className="mt-0 text-xl">Cargando</p>
+          <div className="spin text-xl">Cargando</div>
         </div>
       }
     </div>
