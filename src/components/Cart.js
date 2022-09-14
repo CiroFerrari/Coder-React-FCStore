@@ -1,4 +1,4 @@
-import {Fragment, useContext, useEffect, useState} from 'react'
+import {Fragment, useContext, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {Link} from "react-router-dom";
 import {CartContext} from "./CartContext";
@@ -62,6 +62,8 @@ export default function Cart() {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul className="-my-6 divide-y divide-gray-200">
+                            {cartContext.cartList.length === 0 &&
+                            <p className="mt-2">El carrito está vacío.</p>}
                             {cartContext.cartList.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div
@@ -113,35 +115,46 @@ export default function Cart() {
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">No incluye costos de envío.</p>
                       <div className="mt-6">
-                        <Link
-                          to='/'
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                        >
-                          Finalizar compra
-                        </Link>
-                      </div>
-                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                        <p>
-                          <button
-                            type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500 mr-1"
-                            onClick={() => cartContext.clearCart()}
+                        {cartContext.cartList.length === 0 ?
+                          <Link
+                            to='/'
+                            className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                           >
-                            Limpiar carrito
-                          </button>
-                          o
-                          <Link to='/'>
+                            Empezar a comprar
+                          </Link>
+                        :
+                          <Link
+                            to='/checkout'
+                            className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          >
+                            Finalizar compra
+                          </Link>
+                        }
+                      </div>
+                      {cartContext.cartList.length > 0 &&
+                        <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                          <p>
                             <button
                               type="button"
-                              className="font-medium text-indigo-600 hover:text-indigo-500 ml-1"
-                              onClick={() => setOpen(false)}
+                              className="font-medium text-indigo-600 hover:text-indigo-500 mr-1"
+                              onClick={() => cartContext.clearCart()}
                             >
-                              Continuar comprando
-                              <span aria-hidden="true"> &rarr;</span>
+                              Limpiar carrito
                             </button>
-                          </Link>
-                        </p>
-                      </div>
+                            o
+                            <Link to='/'>
+                              <button
+                                type="button"
+                                className="font-medium text-indigo-600 hover:text-indigo-500 ml-1"
+                                onClick={() => setOpen(false)}
+                              >
+                                Continuar comprando
+                                <span aria-hidden="true"> &rarr;</span>
+                              </button>
+                            </Link>
+                          </p>
+                        </div>
+                      }
                     </div>
                   </div>
                 </Dialog.Panel>

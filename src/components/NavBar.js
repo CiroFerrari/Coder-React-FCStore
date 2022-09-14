@@ -1,10 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
-import {Fragment} from 'react'
+import {Fragment, useContext} from 'react'
 import {Disclosure} from '@headlessui/react'
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
 import Logo from '../assets/LogoFCStore.png'
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
+import {CartContext} from "./CartContext";
 
 const navigation = [
   {name: 'Inicio', to: '/', current: false},
@@ -18,6 +19,9 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
+
+  const cartContext = useContext(CartContext);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({open}) => (
@@ -69,7 +73,7 @@ export default function NavBar() {
                   </div>
                 </div>
               </div>
-              <CartWidget/>
+              {cartContext.cartList.length > 0 && <CartWidget/>}
             </div>
           </div>
 
