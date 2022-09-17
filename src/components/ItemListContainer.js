@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
-import queryData from "../utils/queryData";
-import {productsData} from "../utils/productsData";
 import ItemList from "./ItemList";
 import {useParams} from "react-router-dom";
+import { firestoreFetch } from '../utils/firebaseConfig'
 
 export default function ItemListContainer(props) {
 
@@ -10,15 +9,9 @@ export default function ItemListContainer(props) {
   const {id} = useParams();
 
   useEffect(() => {
-    if (id) {
-      queryData(productsData.filter(item => item.category === id))
-        .then(result => setProducts(result))
-        .catch(err => console.log(err))
-    } else {
-      queryData(productsData)
-        .then(result => setProducts(result))
-        .catch(err => console.log(err))
-    }
+    firestoreFetch(id)
+      .then(result => setProducts(result))
+      .catch(err => console.log(err))
   }, [id])
 
   return (

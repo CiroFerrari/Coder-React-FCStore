@@ -1,14 +1,22 @@
-import {Fragment, useContext, useState} from 'react'
+import {Fragment, useContext, useState, useEffect} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {Link} from "react-router-dom";
 import {CartContext} from "./CartContext";
 import ItemCountCart from "./itemCountCart";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
 
   const cartContext = useContext(CartContext);
   const [open, setOpen] = useState(true);
   let subtotal = cartContext.subtotal;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (open===false) {
+      navigate("/");
+    }
+  }, [open]);
 
   return (
     <Transition.Root show={open} as={Fragment}>

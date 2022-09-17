@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import queryData from "../utils/queryData";
 import ItemDetail from "./ItemDetail";
-import {productsData} from "../utils/productsData";
 import {useParams} from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { firestoreOneFetch } from "../utils/firebaseConfig";
 
 export default function ItemDetailContainer() {
 
@@ -10,10 +10,10 @@ export default function ItemDetailContainer() {
   const { id } = useParams();
 
   useEffect(() => {
-    queryData(productsData.filter(item => item.id === parseInt(id)))
-      .then(result => setOneProduct(result[0]))
+    firestoreOneFetch(id)
+      .then(result => setOneProduct(result))
       .catch(err => console.log(err))
-  })
+  }, [id])
 
   return (
     oneProduct ? <ItemDetail item={oneProduct}/> :

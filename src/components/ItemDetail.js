@@ -29,7 +29,13 @@ export default function ItemDetail(props) {
               <div>
                 <h3 className="sr-only">Description</h3>
                 <div className="space-y-6">
-                  <p className="text-base text-gray-900">{props.item.description}</p>
+                  {(typeof(props.item.description) === 'string' ) ?
+                    <p className="text-base text-gray-900">{props.item.description}</p>
+                    :
+                    props.item.description.map(parrafo =>
+                      <p key={parrafo} className="text-base text-gray-900">{parrafo}</p>
+                    )
+                  }
                 </div>
               </div>
             </div>

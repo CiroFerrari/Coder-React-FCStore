@@ -5,7 +5,7 @@ export const productsData = [
     href: '#',
     imageSrc: 'https://images.hola.com/imagenes/belleza/actualidad/2016020383507/productos-beauty-mas-vendidos/0-350-193/lierac--a.jpg',
     imageAlt: "Crema anti edad Lierac.",
-    price: '7200',
+    price: 7200,
     brand: 'Lierac',
     min: 1,
     stock: 5,

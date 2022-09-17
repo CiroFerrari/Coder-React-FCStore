@@ -22,7 +22,7 @@ export default function CartWidget() {
           </svg>
         </button>
       </Link>
-      <span className="text-gray-400 text-xs mb-6 ml-[-4px]">{cantidad}</span>
+      {cantidad !== 0 && <span className="text-gray-400 text-xs mb-6 ml-[-4px]">{cantidad}</span>}
     </div>
   );
 }

@@ -73,7 +73,7 @@ export default function NavBar() {
                   </div>
                 </div>
               </div>
-              {cartContext.cartList.length > 0 && <CartWidget/>}
+              <CartWidget/>
             </div>
           </div>
 
