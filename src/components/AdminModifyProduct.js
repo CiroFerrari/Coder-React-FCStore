@@ -1,16 +1,15 @@
 
 import React, {useContext, useEffect, useState} from "react";
 import swal from 'sweetalert';
-import { Link as LinkRouter, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {AdminContext} from "./AdminContext";
-import {collection, doc, setDoc, updateDoc} from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig";
 
 export default function AdminModifyProduct() {
 
   const adminContext = useContext(AdminContext);
 
-  const navigate = useNavigate();
   const [reload, setReload] = useState(false);
 
   const [productName, setProductName] = useState("")
@@ -59,7 +58,7 @@ export default function AdminModifyProduct() {
       description: productDescription,
       category: productCategory
     }
-    console.log(productToModify)
+
 
     const modifyProductInFirebase = async () => {
       const itemRef = doc(db, "products", productToModify.id);

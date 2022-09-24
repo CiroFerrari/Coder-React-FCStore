@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import swal from 'sweetalert';
-import { Link as LinkRouter, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { doc, collection, setDoc } from "firebase/firestore";
 import {db} from "../utils/firebaseConfig";
 
@@ -45,7 +44,7 @@ export default function AdminAddProduct() {
       description: productDescription,
       category: productCategory
     }
-    console.log(productToAdd)
+
     const addProductInFirebase = async () => {
       let newProductRef = doc(collection(db, 'products'))
       await setDoc(newProductRef, productToAdd)

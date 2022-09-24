@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import swal from 'sweetalert';
-import {Link as LinkRouter, useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 import {AdminContext} from "./AdminContext";
 import {doc, deleteDoc} from "firebase/firestore";
 import {db} from "../utils/firebaseConfig";
@@ -38,7 +38,7 @@ export default function AdminDeleteProduct() {
 
   const deleteProduct = (event) => {
     event.preventDefault()
-    console.log(productID)
+
     const deleteProductInFirebase = async () => {
       await deleteDoc(doc(db, "products", productID));
       return productID
