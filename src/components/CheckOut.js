@@ -2,26 +2,70 @@ import ItemCountCart from "./itemCountCart";
 import {useContext, useEffect, useState} from "react";
 import {CartContext} from "./CartContext";
 import swal from "sweetalert";
-
+import {doc, collection, setDoc, updateDoc, increment, serverTimestamp} from "firebase/firestore";
+import {db} from "../utils/firebaseConfig";
+import {useNavigate} from "react-router-dom";
 
 export default function CheckOut() {
 
+  const navigate = useNavigate();
   const cartContext = useContext(CartContext);
   let subtotal = cartContext.subtotal;
   const [finCompra, setFinCompra] = useState(false)
+  const [name, setName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
 
-  useEffect(() => {
-    if(finCompra===true){
-      cartContext.clearCart();
-    }
-  }, [finCompra, cartContext])
-
-  function sendForm(event) {
+  const createOrder = (event) => {
     event.preventDefault()
-    swal('¡Su pedido se ha enviado con éxito!');
-    setFinCompra(true)
-  }
 
+    if (name && lastName && email && phone) {
+      let itemsForDB = cartContext.cartList.map(item => ({
+        id: item.id,
+        title: item.name,
+        price: item.price,
+        quantity: item.quantity
+      }))
+      let order = {
+        buyer: {
+          name: name,
+          lastName: lastName,
+          email: email,
+          phone: phone
+        },
+        date: serverTimestamp(),
+        items: itemsForDB,
+        total: "$" + cartContext.subtotal
+      }
+
+      const createOrderInFirebase = async () => {
+        let newOrderRef = doc(collection(db, 'orders'))
+        await setDoc(newOrderRef, order)
+        return newOrderRef
+      }
+
+      createOrderInFirebase()
+        .then(result => {
+          swal('Su compra se ha creado con éxito con la siguiente identificación:\n\n' + result.id)
+          cartContext.cartList.forEach(async (item) => {
+            const itemRef = doc(db, "products", item.id);
+            await updateDoc(itemRef, {
+              stock: increment(-item.quantity)
+            });
+          })
+          cartContext.clearCart();
+        })
+        .catch(err => console.log(err))
+
+      setTimeout(() => {
+        navigate("/");
+      }, "5000")
+    } else {
+      swal("Por favor completa todos los campos del formulario")
+    }
+
+  }
 
   return (
     <>
@@ -40,6 +84,7 @@ export default function CheckOut() {
                             Nombre
                           </label>
                           <input
+                            onChange={(event) => setName(event.target.value)}
                             placeholder="Introduzca aquí su nombre"
                             required
                             type="text"
@@ -54,6 +99,7 @@ export default function CheckOut() {
                             Apellido
                           </label>
                           <input
+                            onChange={(event) => setLastName(event.target.value)}
                             placeholder="Introduzca aquí su apellido"
                             required
                             type="text"
@@ -68,6 +114,7 @@ export default function CheckOut() {
                             Email
                           </label>
                           <input
+                            onChange={(event) => setEmail(event.target.value)}
                             placeholder="Introduzca aquí su email"
                             required
                             type="text"
@@ -83,6 +130,7 @@ export default function CheckOut() {
                             Teléfono
                           </label>
                           <input
+                            onChange={(event) => setPhone(event.target.value)}
                             placeholder="Introduzca aquí su número (sólo números)"
                             pattern="[0-9]"
                             required
@@ -114,7 +162,7 @@ export default function CheckOut() {
                     </div>
                     <div className="bg-gray-50 px-4 py-3 text-center sm:px-6">
                       <button
-                        onClick={sendForm}
+                        onClick={createOrder}
                         type="submit"
                         className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       >
@@ -190,7 +238,8 @@ export default function CheckOut() {
         :
         <>
           <h1 className="text-3xl mt-24">¡Su pedido se ha enviado con éxito!</h1>
-          <p className="text-xl mt-12">El negocio se pondrá en contacto con usted para coordinar la entrega y formas de pago.</p>
+          <p className="text-xl mt-12">El negocio se pondrá en contacto con usted para coordinar la entrega y formas de
+            pago.</p>
         </>
       }
     </>
