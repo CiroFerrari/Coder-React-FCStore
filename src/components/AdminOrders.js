@@ -25,9 +25,9 @@ export default function AdminOrders() {
 
   return (
     <div className=''>
-      <h1 className="text-3xl mt-12">Órdenes de compra</h1>
+      <h1 className="text-3xl mt-8 mb-8">Órdenes de compra</h1>
       {orders.map(order =>
-        <div className='text-left px-4 my-4 border-y border-gray-200 py-2 mx-8' key={order.id}>
+        <div className='text-left px-4 my-4 border-t border-gray-200 py-2 pt-4 mx-8' key={order.id}>
           <p><span className='text-xl mt-4'>Orden ID:</span> {order.id}</p>
           <p className='text-xl mt-4'>Comprador:</p>
           <p>Nombre y apellido: {order.buyer.name} {order.buyer.lastName}</p>

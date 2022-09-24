@@ -47,6 +47,10 @@ export default function AdminDeleteProduct() {
     deleteProductInFirebase()
       .then(result => swal("Se ha eliminado correctamente el producto con el ID:\n\n" + result))
       .catch(err => console.log(err))
+
+    setTimeout(() => {
+      navigate("/");
+    }, "5000")
   }
 
   return (
@@ -106,13 +110,6 @@ export default function AdminDeleteProduct() {
                           className="text-start px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                         >
                           Descripción del producto: {productDescription}
-                        </p>
-                      </div>
-                      <div className="col-span-6 sm:col-span-3 mt-3">
-                        <p
-                          className="text-start px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        >
-                          Imagen del producto: {productImageSrc}
                         </p>
                       </div>
                       <div className="mt-3 w-full px-4 py-3 bg-gray-50 text-center sm:px-6">

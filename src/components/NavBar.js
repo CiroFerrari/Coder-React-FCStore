@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
 import Logo from '../assets/LogoFCStore.png'
 import CartWidget from "./CartWidget";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {AdminContext} from "./AdminContext";
 
 const navigation = [
@@ -21,6 +21,12 @@ function classNames(...classes) {
 export default function NavBar() {
 
   const adminContext = useContext(AdminContext);
+  const navigate = useNavigate()
+
+  const signOut = () => {
+    adminContext.adminOffline()
+    navigate('/')
+  }
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -161,7 +167,7 @@ export default function NavBar() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          onClick={adminContext.adminOffline}
+                          onClick={signOut}
                           href=""
                           className={classNames(active ? 'bg-gray-100' : '', 'w-full block px-4 py-2 text-sm text-gray-700')}
                         >
