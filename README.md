@@ -21,6 +21,7 @@ npm start
 - React.js
 - React Router Dom
 - TailwindCSS & TailwindUI
+- Firebase: Firestore Database, Authentication
 
 # Equipo de dev 🎁
 
