@@ -1,16 +1,12 @@
-import ItemCountCart from "./itemCountCart";
 import {useContext, useEffect, useState} from "react";
-import {CartContext} from "./CartContext";
 import swal from "sweetalert";
 import {doc, getDoc} from "firebase/firestore";
 import {db, firestoreFetch} from "../utils/firebaseConfig";
 import {AdminContext} from "./AdminContext";
 import {useNavigate} from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 
 export default function AdminSignIn() {
-
   const adminContext = useContext(AdminContext);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -33,14 +29,13 @@ export default function AdminSignIn() {
       .then(result => setAdminData(result))
   }, [])
 
-
   useEffect(() => {
     setForm(false)
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
         const user = userCredential.user;
-        if(user.email === adminData.email) {
+        if (user.email === adminData.email) {
           adminContext.adminOnline();
         }
       })
@@ -52,7 +47,7 @@ export default function AdminSignIn() {
   }, [form])
 
   useEffect(() => {
-    if(adminContext.admin) {
+    if (adminContext.admin) {
       swal('¡Sesión como Admin iniciada correctamente!');
       navigate("/");
     }
@@ -61,11 +56,11 @@ export default function AdminSignIn() {
   function sendForm(event) {
     event.preventDefault();
     setForm(true)
-    }
+  }
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row w-full justify-around items-center mt-16">
+      <div className="flex flex-col lg:flex-row w-full justify-around items-center lg:items-start mt-16 grow">
         {/* Formulario de Contacto */}
         <div className="mt-10 sm:mt-0 w-4/5 lg:w-2/5">
           <div className="md:grid md:grid-cols-3 md:gap-6">

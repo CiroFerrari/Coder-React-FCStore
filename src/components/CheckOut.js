@@ -1,5 +1,5 @@
 import ItemCountCart from "./itemCountCart";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import {CartContext} from "./CartContext";
 import swal from "sweetalert";
 import {doc, collection, setDoc, updateDoc, increment, serverTimestamp} from "firebase/firestore";
@@ -7,7 +7,6 @@ import {db} from "../utils/firebaseConfig";
 import {useNavigate} from "react-router-dom";
 
 export default function CheckOut() {
-
   const navigate = useNavigate();
   const cartContext = useContext(CartContext);
   let subtotal = cartContext.subtotal;
@@ -19,7 +18,6 @@ export default function CheckOut() {
 
   const createOrder = (event) => {
     event.preventDefault()
-
     if (name && lastName && email && phone) {
       let itemsForDB = cartContext.cartList.map(item => ({
         id: item.id,
@@ -64,13 +62,12 @@ export default function CheckOut() {
     } else {
       swal("Por favor completa todos los campos del formulario")
     }
-
   }
 
   return (
     <>
       {!finCompra ?
-        <div className="flex flex-col lg:flex-row w-full justify-around items-center mt-16">
+        <div className="flex flex-col lg:flex-row w-full justify-around items-start mt-16 grow">
           {/* Formulario de Contacto */}
           <div className="mt-10 sm:mt-0 w-4/5 lg:w-2/5">
             <div className="md:grid md:grid-cols-3 md:gap-6">
@@ -142,7 +139,6 @@ export default function CheckOut() {
                           />
                         </div>
 
-
                         <div className="col-span-6 sm:col-span-6 lg:col-span-6">
                           <label htmlFor="about" className="text-start block text-sm font-medium text-gray-700">
                             Detalle
@@ -157,7 +153,6 @@ export default function CheckOut() {
                             Este pedido será enviado al negocio.
                           </p>
                         </div>
-
                       </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 text-center sm:px-6">
@@ -190,7 +185,6 @@ export default function CheckOut() {
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
-
                       <div className="ml-4 flex flex-1 flex-col">
                         <div>
                           <div className="flex justify-between text-base font-medium text-gray-900">
@@ -223,7 +217,6 @@ export default function CheckOut() {
               </div>
             </div>
 
-
             <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Total</p>
@@ -234,7 +227,6 @@ export default function CheckOut() {
             </div>
           </div>
         </div>
-
         :
         <>
           <h1 className="text-3xl mt-24">¡Su pedido se ha enviado con éxito!</h1>

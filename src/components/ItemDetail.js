@@ -4,7 +4,6 @@ import {AdminContext} from "./AdminContext";
 import {Link} from "react-router-dom";
 
 export default function ItemDetail(props) {
-
   const adminContext = useContext(AdminContext);
 
   const modificarProducto = () => {
@@ -12,12 +11,12 @@ export default function ItemDetail(props) {
   }
 
   let temporalDescription = props.item.description
-  if(typeof temporalDescription === typeof 'string') {
+  if (typeof temporalDescription === typeof 'string') {
     temporalDescription = temporalDescription.split('\\n')
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white grow">
       <div className="pt-6">
         {/* Image */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
@@ -31,7 +30,7 @@ export default function ItemDetail(props) {
 
           {/* Description and Price */}
           <div
-            className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-1 lg:grid-rows-[auto] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
+            className="w-full mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-1 lg:grid-rows-[auto] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{props.item.name}</h1>
             </div>
@@ -42,7 +41,7 @@ export default function ItemDetail(props) {
               <div>
                 <h3 className="sr-only">Description</h3>
                 <div className="space-y-6">
-                  {(typeof(temporalDescription) === 'string' ) ?
+                  {(typeof (temporalDescription) === 'string') ?
                     <p className="text-base text-gray-900">{props.item.description}</p>
                     :
                     temporalDescription.map(parrafo =>

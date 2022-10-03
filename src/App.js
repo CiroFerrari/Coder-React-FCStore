@@ -18,23 +18,23 @@ function App() {
   const adminContext = useContext(AdminContext);
 
   return (
-      <div className="App">
-        <NavBar/>
-        <Routes>
-          <Route path="/" element={<ItemListContainer greetings="¡Pronto estaremos online!"/>}/>
-          <Route path="/category/:id" element={<ItemListContainer greetings="¡Pronto estaremos online!"/>}/>
-          <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/checkout" element={<CheckOut/>}/>
-          <Route path="/admin" element={<AdminSignIn/>}/>
-          {adminContext.admin && <Route path="/adminAddProduct" element={<AdminAddProduct/>}/>}
-          {adminContext.admin && <Route path="/adminModifyProduct" element={<AdminModifyProduct/>}/>}
-          {adminContext.admin && <Route path="/adminDeleteProduct" element={<AdminDeleteProduct/>}/>}
-          {adminContext.admin && <Route path="/adminOrders" element={<AdminOrders/>}/>}
-          <Route path="/*" element={<h1 className="text-3xl mt-12">Sitio no encontrado.</h1>}/>
-        </Routes>
-        <Footer />
-      </div>
+    <div className="App">
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<ItemListContainer greetings="¡Pronto estaremos online!"/>}/>
+        <Route path="/category/:id" element={<ItemListContainer greetings="¡Pronto estaremos online!"/>}/>
+        <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/checkout" element={<CheckOut/>}/>
+        <Route path="/admin" element={<AdminSignIn/>}/>
+        {adminContext.admin && <Route path="/adminAddProduct" element={<AdminAddProduct/>}/>}
+        {adminContext.admin && <Route path="/adminModifyProduct" element={<AdminModifyProduct/>}/>}
+        {adminContext.admin && <Route path="/adminDeleteProduct" element={<AdminDeleteProduct/>}/>}
+        {adminContext.admin && <Route path="/adminOrders" element={<AdminOrders/>}/>}
+        <Route path="/*" element={<div className="grow"><h1 className="text-3xl mt-12">Sitio no encontrado.</h1></div>}/>
+      </Routes>
+      <Footer/>
+    </div>
   );
 }
 

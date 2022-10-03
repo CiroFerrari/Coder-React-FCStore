@@ -1,17 +1,14 @@
 import React, {useContext, useEffect, useState} from "react";
 import swal from 'sweetalert';
-import { useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {AdminContext} from "./AdminContext";
 import {doc, deleteDoc} from "firebase/firestore";
 import {db} from "../utils/firebaseConfig";
 
 export default function AdminDeleteProduct() {
-
   const adminContext = useContext(AdminContext);
-
   const navigate = useNavigate();
   const [reload, setReload] = useState(false);
-
   const [productName, setProductName] = useState("")
   const [productImageSrc, setProductImageSrc] = useState("")
   const [productImageAlt, setProductImageAlt] = useState("")
@@ -22,7 +19,7 @@ export default function AdminDeleteProduct() {
   const [productCategory, setProductCategory] = useState("")
   const [productDescription, setProductDescription] = useState("")
   const [productHigh, setProductHigh] = useState("")
-  const[productID, setProductID] = useState('')
+  const [productID, setProductID] = useState('')
 
   useEffect(() => {
     setProductName(adminContext.productToModify.name)
@@ -55,7 +52,7 @@ export default function AdminDeleteProduct() {
 
   return (
     <>
-      <div>
+      <div className="grow">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0 mt-2">

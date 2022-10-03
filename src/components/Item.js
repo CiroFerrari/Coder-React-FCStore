@@ -17,8 +17,8 @@ export default function Item({item}) {
           <div className="mt-4 flex justify-between">
             <div>
               <h3 className="text-sm text-gray-700">
-                  <span aria-hidden="true" className="absolute inset-0"/>
-                  {item.name}
+                <span aria-hidden="true" className="absolute inset-0"/>
+                {item.name}
               </h3>
               <p className="mt-1 text-sm text-gray-500">{item.brand}</p>
             </div>

@@ -24,7 +24,8 @@ export default function AdminContextProvider({children}) {
   }
 
   return (
-    <AdminContext.Provider value={{admin, adminOnline, adminOffline, productToModify, modifyProduct, productToDelete, deleteProduct}}>
+    <AdminContext.Provider
+      value={{admin, adminOnline, adminOffline, productToModify, modifyProduct, productToDelete, deleteProduct}}>
       {children}
     </AdminContext.Provider>
   )

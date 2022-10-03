@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 export default function Hero() {
   return (
     <div className="bg-gray-50 w-full">

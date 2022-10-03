@@ -1,17 +1,12 @@
-
 import React, {useContext, useEffect, useState} from "react";
 import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom'
 import {AdminContext} from "./AdminContext";
-import { doc, updateDoc } from "firebase/firestore";
+import {doc, updateDoc} from "firebase/firestore";
 import {db} from "../utils/firebaseConfig";
 
 export default function AdminModifyProduct() {
-
   const adminContext = useContext(AdminContext);
-
   const [reload, setReload] = useState(false);
-
   const [productName, setProductName] = useState("")
   const [productImageSrc, setProductImageSrc] = useState("")
   const [productImageAlt, setProductImageAlt] = useState("")
@@ -38,7 +33,7 @@ export default function AdminModifyProduct() {
   }, [reload]);
 
   useEffect(() => {
-    if(typeof productDescription === typeof []) {
+    if (typeof productDescription === typeof []) {
       let temporal = productDescription
       setProductDescription(temporal.join('\n\n'))
     }
@@ -59,7 +54,6 @@ export default function AdminModifyProduct() {
       category: productCategory
     }
 
-
     const modifyProductInFirebase = async () => {
       const itemRef = doc(db, "products", productToModify.id);
       await updateDoc(itemRef, productToModify);
@@ -72,7 +66,7 @@ export default function AdminModifyProduct() {
 
   return (
     <>
-      <div>
+      <div className="grow">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0 mt-2">
@@ -171,7 +165,8 @@ export default function AdminModifyProduct() {
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3 mt-3">
-                          <label htmlFor="product-imageSrc" className="text-start block text-sm font-medium text-gray-700">
+                          <label htmlFor="product-imageSrc"
+                                 className="text-start block text-sm font-medium text-gray-700">
                             Imagen link:
                           </label>
                           <input
@@ -185,7 +180,8 @@ export default function AdminModifyProduct() {
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-3 mt-3">
-                          <label htmlFor="product-imageAlt" className="text-start block text-sm font-medium text-gray-700">
+                          <label htmlFor="product-imageAlt"
+                                 className="text-start block text-sm font-medium text-gray-700">
                             Imagen texto:
                           </label>
                           <input
@@ -198,23 +194,30 @@ export default function AdminModifyProduct() {
                             value={productImageAlt}
                           />
                         </div>
-                        <label htmlFor="product-category" className="text-start mt-3 block text-sm font-medium text-gray-700">
+                        <label htmlFor="product-category"
+                               className="text-start mt-3 block text-sm font-medium text-gray-700">
                           Categoría del producto:
                         </label>
-                        <select onChange={(event) => setProductCategory(event.target.value)} className="capitalize px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" aria-label="Default select example">
-                          <option value={productCategory} >{productCategory}</option>
+                        <select onChange={(event) => setProductCategory(event.target.value)}
+                                className="capitalize px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                aria-label="Default select example">
+                          <option value={productCategory}>{productCategory}</option>
                           <option value='cremas'>Cremas</option>
                           <option value='perfumes'>Perfumes</option>
                           <option value='accesorios'>Accesorios</option>
                         </select>
-                        <label htmlFor="product-highlight" className="text-start mt-3 block text-sm font-medium text-gray-700">
+                        <label htmlFor="product-highlight"
+                               className="text-start mt-3 block text-sm font-medium text-gray-700">
                           Es un producto destacado:
                         </label>
-                        <select onChange={(event) => setProductHigh(event.target.value)} className="px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" aria-label="Default select example">
-                          <option defaultValue={false} >No</option>
+                        <select onChange={(event) => setProductHigh(event.target.value)}
+                                className="px-2 py-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                aria-label="Default select example">
+                          <option defaultValue={false}>No</option>
                           <option value={true}>Sí</option>
                         </select>
-                        <label htmlFor="product-description" className="text-start pl-0.5 mt-3 block text-sm font-medium text-gray-700">
+                        <label htmlFor="product-description"
+                               className="text-start pl-0.5 mt-3 block text-sm font-medium text-gray-700">
                           Descripción:
                         </label>
                         <div className="mt-1">

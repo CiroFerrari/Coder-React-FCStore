@@ -3,17 +3,16 @@ import {Dialog, Transition} from '@headlessui/react'
 import {Link} from "react-router-dom";
 import {CartContext} from "./CartContext";
 import ItemCountCart from "./itemCountCart";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export default function Cart() {
-
   const cartContext = useContext(CartContext);
   const [open, setOpen] = useState(true);
   let subtotal = cartContext.subtotal;
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (open===false) {
+    if (open === false) {
       navigate("/");
     }
   }, [open]);
@@ -71,7 +70,7 @@ export default function Cart() {
                         <div className="flow-root">
                           <ul className="-my-6 divide-y divide-gray-200">
                             {cartContext.cartList.length === 0 &&
-                            <p className="mt-2">El carrito está vacío.</p>}
+                              <p className="mt-2">El carrito está vacío.</p>}
                             {cartContext.cartList.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div
@@ -130,7 +129,7 @@ export default function Cart() {
                           >
                             Empezar a comprar
                           </Link>
-                        :
+                          :
                           <Link
                             to='/checkout'
                             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
