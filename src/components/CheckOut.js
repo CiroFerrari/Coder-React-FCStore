@@ -67,7 +67,7 @@ export default function CheckOut() {
   return (
     <>
       {!finCompra ?
-        <div className="flex flex-col lg:flex-row w-full justify-around items-start mt-16 grow">
+        <div className="flex flex-col lg:flex-row w-full justify-around items-center lg:items-start mt-0 lg:mt-16 grow">
           {/* Formulario de Contacto */}
           <div className="mt-10 sm:mt-0 w-4/5 lg:w-2/5">
             <div className="md:grid md:grid-cols-3 md:gap-6">
