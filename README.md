@@ -7,6 +7,19 @@ Aplicación web de FCStore.
 
 E-commerce realizado como proyecto en el curso de React.js de CoderHouse LATAM.
 
+# Link al proyecto
+```
+https://fcstore-react.vercel.app/
+```
+
+# Link a la Demo 
+```
+https://www.youtube.com/watch?v=R52N37Ik8Ck
+
+Funciones Usuario: minuto 0:00 a 2:30
+Funciones Admin: minuto 2:30 hasta el final
+```
+
 # Comenzando  🚀
 ```
 
